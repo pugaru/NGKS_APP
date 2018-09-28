@@ -28,8 +28,8 @@ class MainActivity : DebugActivity() {
 
 
         botaoLogin.setOnClickListener {
-            if (campo_usuario.text.toString().equals("") ||
-                    campo_senha.text.toString().equals("")) onCLickLogin()
+            if (campo_usuario.text.toString().equals("aluno") ||
+                    campo_senha.text.toString().equals("impacta")) onCLickLogin()
             else Toast.makeText(this,"Usuário ou senha incorretos ",Toast.LENGTH_SHORT).show()
         }
     }
