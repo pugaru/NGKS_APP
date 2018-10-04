@@ -1,18 +1,70 @@
 package com.teco.myapplication2
 
+import android.app.ActionBar
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.design.widget.NavigationView
+import android.support.v4.view.GravityCompat
+import android.support.v7.app.ActionBarDrawerToggle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import com.teco.myapplication2.R.id.action_buscar
 import com.teco.myapplication2.R.id.home
 import kotlinx.android.synthetic.main.activity_tela_inicial.*
+import kotlinx.android.synthetic.main.toolbar.*
 
-class TelaInicialActivity :DebugActivity() {
+class TelaInicialActivity :DebugActivity(), NavigationView.OnNavigationItemSelectedListener {
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.nav_Consulta -> {
+                Toast.makeText(this,
+                        "Clicou Buscar",
+                        Toast.LENGTH_SHORT).show()
+            }
+            R.id.nav_Notificações -> {
+                Toast.makeText(this,
+                        "Clicou Notificações",
+                        Toast.LENGTH_LONG).show()
+            }
+            R.id.nav_Contato -> {
+                Toast.makeText(this,
+                        "Clicou Contato",
+                        Toast.LENGTH_SHORT).show()
+            }
+            R.id.nav_Localização -> {
+                Toast.makeText(this,
+                        "Clicou Localização",
+                        Toast.LENGTH_LONG).show()
+            }
+        }
+
+        layoutMenuLateral.closeDrawer(GravityCompat.START)
+        return true
+    }
+
+    private fun configuraMenuLateral(){
+        var  toolbar = toolbar
+        var menuLateral = layoutMenuLateral
+
+
+        var toogle = ActionBarDrawerToggle(
+                this,
+                menuLateral,
+                toolbar,
+                R.string.navigation_drawer_open,
+                R.string.navigation_drawer_close
+        )
+
+        menuLateral.addDrawerListener(toogle)
+        toogle.syncState()
+
+        var navigationView = menu_lateral
+        navigationView.setNavigationItemSelectedListener(this)
+    }
 
     private val contexto: Context get() = this
 
@@ -21,8 +73,6 @@ class TelaInicialActivity :DebugActivity() {
         setContentView(R.layout.activity_tela_inicial)
 
         var nome = intent.getStringExtra("nome")
-        var numero = intent.getIntExtra("numero",0)
-
 
         mensagemInicial.text = nome
 
@@ -55,6 +105,8 @@ class TelaInicialActivity :DebugActivity() {
         }
 
         supportActionBar?.title = "Tela Incial"
+
+        configuraMenuLateral()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
