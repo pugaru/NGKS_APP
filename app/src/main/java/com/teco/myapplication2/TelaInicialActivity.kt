@@ -20,25 +20,26 @@ import kotlinx.android.synthetic.main.toolbar.*
 class TelaInicialActivity :DebugActivity(), NavigationView.OnNavigationItemSelectedListener {
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.nav_Consulta -> {
-                Toast.makeText(this,
-                        "Clicou Buscar",
-                        Toast.LENGTH_SHORT).show()
+            R.id.nav_estoque -> {
+                val intent = Intent(contexto, EstoqueActivity::class.java)
+
+                startActivityForResult(intent,1)
             }
-            R.id.nav_Notificações -> {
-                Toast.makeText(this,
-                        "Clicou Notificações",
-                        Toast.LENGTH_LONG).show()
+            R.id.nav_caixa -> {
+                val intent = Intent(contexto, caixaActivity::class.java)
+
+                startActivityForResult(intent,1)
             }
-            R.id.nav_Contato -> {
-                Toast.makeText(this,
-                        "Clicou Contato",
-                        Toast.LENGTH_SHORT).show()
+            R.id.nav_produto -> {
+                val intent = Intent(contexto, produtoActivity::class.java)
+
+                startActivityForResult(intent,1)
             }
-            R.id.nav_Localização -> {
-                Toast.makeText(this,
-                        "Clicou Localização",
-                        Toast.LENGTH_LONG).show()
+            R.id.menubsair -> {
+                val returnIntent = Intent()
+                returnIntent.putExtra("result","Você saiu")
+                setResult(Activity.RESULT_OK,returnIntent)
+                finish()
             }
         }
 
@@ -75,34 +76,6 @@ class TelaInicialActivity :DebugActivity(), NavigationView.OnNavigationItemSelec
         var nome = intent.getStringExtra("nome")
 
         mensagemInicial.text = nome
-
-        botaoSair.setOnClickListener{
-            val returnIntent = Intent()
-            returnIntent.putExtra("result","Você saiu")
-            setResult(Activity.RESULT_OK,returnIntent)
-            finish()
-        }
-
-        botao_estoque.setOnClickListener{
-            val intent = Intent(contexto, EstoqueActivity::class.java)
-
-            startActivityForResult(intent,1)
-
-        }
-
-        botao_produto.setOnClickListener{
-            val intent = Intent(contexto, produtoActivity::class.java)
-
-            startActivityForResult(intent,1)
-
-        }
-
-        botao_caixa.setOnClickListener{
-            val intent = Intent(contexto, caixaActivity::class.java)
-
-            startActivityForResult(intent,1)
-
-        }
 
         supportActionBar?.title = "Tela Incial"
 

@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:checkableBehavior="single">
-        <item android:id="@+id/nav_Consulta"
-        android:icon="@drawable/ic_consulta"
-        android:title="Consulta" />
-        <item android:id="@+id/nav_Notificações"
+
+        <item android:id="@+id/nav_estoque"
             android:icon="@drawable/ic_notificacoes"
-            android:title="Notificações" />
-        <item android:id="@+id/nav_Contato"
+            android:title="Estoque" />
+
+        <item android:id="@+id/nav_caixa"
             android:icon="@drawable/ic_contato"
-            android:title="Contato" />
-        <item android:id="@+id/nav_Localização"
+            android:title="Caixa" />
+
+        <item android:id="@+id/nav_produto"
             android:icon="@drawable/ic_localizacao_black"
-            android:title="Localização" />
-        <item android:id="@+id/botaoSair"
+            android:title="Produtos" />
+
+        <item android:id="@+id/menubsair"
             android:icon="@drawable/sair"
             android:title="Sair" />
     </group>

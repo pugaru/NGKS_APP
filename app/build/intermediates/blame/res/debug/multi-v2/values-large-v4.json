@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\Yuji\\AndroidStudioProjects\\new_project\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-large-v4\\values-large-v4.xml",
+            "outputFile": "C:\\Users\\Yuji\\AndroidStudioProjects\\NGKS_App\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-large-v4\\values-large-v4.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Yuji\\.gradle\\caches\\transforms-1\\files-1.1\\design-28.0.0-rc02.aar\\42fa451ad89e11d2396ed7e65743a8b4\\res\\values-large-v4\\values-large-v4.xml",
